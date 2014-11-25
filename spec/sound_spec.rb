@@ -18,4 +18,18 @@ describe Akkord::Sound do
       expect(Akkord::Sound.new(1).name).to eq(:"C#")
     end
   end
+
+  describe '#-, #interval' do
+    it 'returns 1 when the other has same note_number to self' do
+      expect(Akkord::Sound.new(0) - Akkord::Sound.new(0)).to eq(1)
+    end
+
+    it 'returns 2 when the other has one more than self note_number' do
+      expect(Akkord::Sound.new(1) - Akkord::Sound.new(0)).to eq(2)
+    end
+
+    it 'returns -1 when the other has one less than self note_number' do
+      expect(Akkord::Sound.new(0) - Akkord::Sound.new(1)).to eq(-2)
+    end
+  end
 end

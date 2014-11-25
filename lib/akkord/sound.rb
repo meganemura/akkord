@@ -29,5 +29,15 @@ module Akkord
       when 11 then :B
       end
     end
+
+    def -(other)
+      a, b = note_number, other.note_number
+      if a >= b
+        (a - 1) - (b - 1) + 1
+      else
+        (a - 1) - (b - 1) - 1
+      end
+    end
+    alias_method :interval, :-
   end
 end
