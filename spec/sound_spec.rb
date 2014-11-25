@@ -8,4 +8,14 @@ describe Akkord::Sound do
       expect(Akkord::Sound.new(57).hertz).to eq(220.0)
     end
   end
+
+  describe '#name' do
+    it 'returns :C when note_number == 0' do
+      expect(Akkord::Sound.new(0).name).to eq(:C)
+    end
+
+    it 'returns :"C#" when note_number == 1' do
+      expect(Akkord::Sound.new(1).name).to eq(:"C#")
+    end
+  end
 end
